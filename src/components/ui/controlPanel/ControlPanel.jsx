@@ -33,7 +33,7 @@ class ControlPanel extends React.PureComponent {
   const { city } = this.state;
   return(
   <React.Fragment>
-    <h1>Маябрь - погода в городе</h1>
+    <h1>Погода в городе</h1>
     <div className={classes.controlPanel}>
       <div className={classes.addingCityMenu}>
         <ReactDadata

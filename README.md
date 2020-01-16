@@ -1,3 +1,28 @@
+##Погода
+
+Это тестовое приложение погоды на React, Redux и Redux-Saga, написанное в рамках тестового задания при трудоустройстве.
+
+![App image](https://i.ibb.co/RTnPVwY/Screenshot-2020-01-16-at-14-15-59.png")
+
+Для работы приложение использует следующие API:
+1. [DaData Подсказки](https://dadata.ru/api/#suggest) для автодополнения адресов
+2. [Яндекс Геокодер](https://tech.yandex.ru/maps/geocoder/doc/desc/concepts/about-docpage/) для определения координат по адресу
+3. [OpenWeather API](https://openweathermap.org/api) для текущей погоды по координатам
+
+Для запуска приложения локально потребуется сгенерировать API Key для каждого из вышеперечисленных API и поместить их в файл `tokens.js` по пути `/src/utils`
+
+Файл `tokens.js` имеет вид:
+```javascript
+const tokens = {
+  dadata: 'Ваш DaData API Key',
+  yandexGeo: 'Ваш Яндекс Геокодер API Key',
+  openWeatherMap: 'Ваш OpenWeather API Key'
+};
+
+export default tokens;
+```
+<hr>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
