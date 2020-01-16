@@ -11,7 +11,8 @@ class ControlPanel extends React.PureComponent {
     city: {
       name: '',
       coordinates: []
-    }
+    },
+    isDisabled: true
   };
 
   getGeoPosition = async (city) => {
@@ -24,13 +25,28 @@ class ControlPanel extends React.PureComponent {
       city: {
         name: city,
         coordinates
-      }
+      },
+      isDisabled: false
+    }));
+  };
+
+  onAddCity = () => {
+    const { addCity } = this.props;
+    const { city } = this.state;
+    addCity(city);
+    this.setState(prevState => ({
+      ...prevState,
+      city: {
+        name: '',
+        coordinates: []
+      },
+      isDisabled: true
     }));
   };
 
   render() {
-  const { classes, addCity, tempLimit, setTempLimit } = this.props;
-  const { city } = this.state;
+  const { classes, tempLimit, setTempLimit } = this.props;
+  const { isDisabled } = this.state;
   return(
   <React.Fragment>
     <h1>Погода в городе</h1>
@@ -45,7 +61,8 @@ class ControlPanel extends React.PureComponent {
         />
         <button
           className={classes.addButton}
-          onClick={() => addCity(city)}
+          onClick={this.onAddCity}
+          disabled={isDisabled}
         >
           <AddIcon/>
         </button>

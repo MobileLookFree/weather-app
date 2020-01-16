@@ -43,10 +43,17 @@ const styles = {
     border: '1px solid #ccc',
     transition: '200ms',
     cursor: 'pointer',
+    '&:disabled': {
+      border: '1px solid #ccc',
+      pointerEvents: 'none',
+      '& svg g': {
+        fill: '#ccc',
+      }
+    },
     '&:hover': {
       backgroundColor: '#e0e0e0',
       border: '1px solid grey',
-    }
+    },
   },
   '@media (max-width: 692px)': {
     controlPanel: {

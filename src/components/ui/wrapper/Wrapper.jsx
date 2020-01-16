@@ -27,8 +27,16 @@ class Wrapper extends React.PureComponent {
   addCity = (city) => {
     const { cities, addCity } = this.props;
     const newCities = cities.toJS();
-    newCities.push(city);
-    addCity(newCities);
+    if (newCities.length === 0) {
+      newCities.push(city);
+      addCity(newCities);
+    } else if
+    (newCities.find(item => item.name === city.name)) {
+      alert('Такой город уже есть');
+    } else {
+      newCities.push(city);
+      addCity(newCities);
+    }
   };
 
   deleteCity = (name) => {
